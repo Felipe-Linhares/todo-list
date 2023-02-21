@@ -5,13 +5,15 @@ class ToDoTile extends StatelessWidget {
   final bool taskComplete;
   final Function(bool?)? onChanged;
   final Function() deleteFunction;
+  final Function() copyFunction;
 
   const ToDoTile(
       {super.key,
       required this.taskName,
       required this.taskComplete,
       required this.onChanged,
-      required this.deleteFunction});
+      required this.deleteFunction,
+      required this.copyFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,16 @@ class ToDoTile extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 4),
+              child: GestureDetector(
+                onTap: copyFunction,
+                child: const Icon(
+                  Icons.copy,
+                  color: Colors.teal,
+                ),
               ),
             ),
             GestureDetector(
