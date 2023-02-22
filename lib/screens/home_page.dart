@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lista_de_tarefas/components/dialog_box.dart';
+import 'package:lista_de_tarefas/components/icon_button_pdf.dart';
 import 'package:lista_de_tarefas/components/todo_tile.dart';
 import 'package:lista_de_tarefas/data/database.dart';
 import 'package:lottie/lottie.dart';
@@ -97,6 +98,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text('Tarefas'),
         elevation: 0,
+        actions: const [IconButtonPDF()],
       ),
       body: db.toDoList.isEmpty
           ? Center(child: Lottie.asset('assets/lottie/empty_list.json'))
